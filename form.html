@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>form</title>
+<body bgcolor="grey">
+<center><h1>REGISTRATION FORM</h1></center>
+<form name="form" action="" method="POST" onsubmit="validateForm()">
+name:<input type="text" name="name"><br>
+gender:<input type="radio" name="gender" value="male">male
+<input type="radio" name="gender" value="female">female<br>
+age:<select>
+	<option>select</option>
+	<option>15-20</option>
+	<option>20-30</option>
+	<option>above 30</option>
+	</select><br>
+email ID:<input type="email" name="email"><br>
+nationality:<input type="checkbox" name="check box">Indian
+<input type="checkbox" name="check box">American
+<br>
+password:<input type="password" name="password"><br>
+upload cv:<input type="file"><br>
+<input type="submit" value="submit">
+<script>
+function validateForm() {
+var name = document.form.name.value;
+var email = document.form.email.value;
+var password = document.form.password.value;
+var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+var ren = /[0-9!@#$%^&*]/;
+var qw = /^(?=.*\d)(?=.*[a-z])(?=.*[@])(?=.*[gmail])(?=.*[.])(?=.*[com])/;
+if (name == "") {
+	alert("Enter Name !!");
+	document.form.name.focus();
+return false;
+}
+else if(ren.test(name)){
+	alert("Enter Valid Name !!");
+	document.form.name.focus();
+return false;
+}
+if (email == "") {
+	alert("Enter email!!");
+	document.form.email.focus();
+return false;
+}
+
+else if(qw.test(email)){
+	alert("Enter Valid mail id !!");
+	document.form.email.focus();
+return false;
+}
+if (password == "" || password.length < 8 || !re.test(password)) {
+	alert("Enter minimum 8 digit Password !!" + '\n' + "Atleast one Lowercase &uppercase & digti & special charecter must be included");
+	document.form.password.focus();
+return false;
+}
+}
+</script>
+</body>
+</head>
+</html>
+
+
